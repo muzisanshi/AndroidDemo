@@ -1,6 +1,8 @@
 package com.example.androiddemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,6 +40,11 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
         button = findViewById(R.id.nav);
         button.setOnClickListener(this);
+
+        // 添加fragment
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fr = new MyFragment();
+        fm.beginTransaction().add(R.id.container,fr).commit();
     }
 
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
