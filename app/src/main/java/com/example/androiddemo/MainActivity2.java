@@ -11,11 +11,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.androiddemo.MainActivity3;
+import com.example.model.SerializeClass;
 
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener{
 
     int age = 0;
     Button button = null;
+    Button listView = null;
+    Button listView2 = null;
+    Button constraint = null;
+    Button serialize = null;
     TextView tv = null;
 
     public void add(int diff){
@@ -40,10 +45,21 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
         button = findViewById(R.id.nav);
         button.setOnClickListener(this);
+        listView = findViewById(R.id.listView);
+        listView.setOnClickListener(this);
+        listView2 = findViewById(R.id.listView2);
+        listView2.setOnClickListener(this);
+        constraint = findViewById(R.id.constraint);
+        constraint.setOnClickListener(this);
+        serialize = findViewById(R.id.serialize);
+        serialize.setOnClickListener(this);
 
         // 添加fragment
         FragmentManager fm = getSupportFragmentManager();
         Fragment fr = new MyFragment();
+        Bundle bd = new Bundle();
+        bd.putSerializable("serial",new SerializeClass());
+        fr.setArguments(bd);
         fm.beginTransaction().add(R.id.container,fr).commit();
     }
 
@@ -86,16 +102,34 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+        Intent i = null;
         switch(view.getId()){
             case R.id.nav:
-//                Intent i = new Intent(MainActivity2.this,MainActivity3.class);
+//                i = new Intent(MainActivity2.this,MainActivity3.class);
 //                startActivity(i);
-                Intent i = new Intent("com.example.androiddemo.mainactivity3");
+                i = new Intent("com.example.androiddemo.mainactivity3");
                 i.putExtra("name","lilei");
                 i.putExtra("age",31);
 //                startActivity(i);
 //                startActivityForResult(99,i);
                 startActivityForResult(i,99);
+                break;
+            case R.id.listView:
+                i = new Intent(MainActivity2.this,ListViewActivity.class);
+                startActivity(i);
+                break;
+            case R.id.listView2:
+                i = new Intent(MainActivity2.this,RecyclerViewActivity.class);
+                startActivity(i);
+                break;
+            case R.id.constraint:
+                i = new Intent(MainActivity2.this,ConstraintActivity.class);
+                startActivity(i);
+                break;
+            case R.id.serialize:
+                i = new Intent(MainActivity2.this,SerializeActivity.class);
+                i.putExtra("serial",new SerializeClass());
+                startActivity(i);
                 break;
             default:
         }
