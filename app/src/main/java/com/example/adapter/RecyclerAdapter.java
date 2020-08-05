@@ -47,4 +47,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public int getItemCount() {
         return listData.getSize();
     }
+
+    public void add(String item){
+        listData.add(item);
+        notifyDataSetChanged();
+    }
 }

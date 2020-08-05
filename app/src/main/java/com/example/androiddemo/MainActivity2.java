@@ -3,11 +3,15 @@ package com.example.androiddemo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.androiddemo.MainActivity3;
@@ -21,6 +25,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     Button listView2 = null;
     Button constraint = null;
     Button serialize = null;
+    Button pager = null;
+    Button dialog = null;
+    Button sqlite = null;
     TextView tv = null;
 
     public void add(int diff){
@@ -30,6 +37,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         age *= 2;
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +61,12 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         constraint.setOnClickListener(this);
         serialize = findViewById(R.id.serialize);
         serialize.setOnClickListener(this);
+        pager = findViewById(R.id.pager);
+        pager.setOnClickListener(this);
+        dialog = findViewById(R.id.dialog);
+        dialog.setOnClickListener(this);
+        sqlite = findViewById(R.id.sqlite);
+        sqlite.setOnClickListener(this);
 
         // 添加fragment
         FragmentManager fm = getSupportFragmentManager();
@@ -129,6 +143,19 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             case R.id.serialize:
                 i = new Intent(MainActivity2.this,SerializeActivity.class);
                 i.putExtra("serial",new SerializeClass());
+                startActivity(i);
+                break;
+            case R.id.pager:
+                i = new Intent(MainActivity2.this, ViewPagerActivity.class);
+                startActivity(i);
+                break;
+            case R.id.dialog:
+                i = new Intent(MainActivity2.this, DialogActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                startActivity(i);
+                break;
+            case R.id.sqlite:
+                i = new Intent(MainActivity2.this, SQLiteActivity.class);
                 startActivity(i);
                 break;
             default:
