@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SQLiteActivity"></activity>
+        <activity android:name="com.example.service.ServiceActivity"></activity>
+        <activity android:name=".IntentActivity" />
+        <activity android:name=".SQLiteActivity" />
         <activity android:name=".DialogActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".SerializeActivity" />
@@ -39,6 +41,17 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+
+        <service
+            android:name="com.service.MyService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

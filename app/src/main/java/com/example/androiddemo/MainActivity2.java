@@ -1,6 +1,8 @@
 package com.example.androiddemo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
@@ -8,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.androiddemo.MainActivity3;
 import com.example.model.SerializeClass;
+import com.example.service.ServiceActivity;
 
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener{
 
@@ -28,7 +32,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     Button pager = null;
     Button dialog = null;
     Button sqlite = null;
+    Button intent = null;
+    Button service = null;
     TextView tv = null;
+    private Bundle state;
 
     public void add(int diff){
         age += diff;
@@ -41,6 +48,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("---MainActivity2----","onCreate");
         if(savedInstanceState != null && savedInstanceState.containsKey("age")){
             age = (int)savedInstanceState.get("age") + 30;
             Log.d("----log----",String.valueOf(age));
@@ -67,6 +75,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         dialog.setOnClickListener(this);
         sqlite = findViewById(R.id.sqlite);
         sqlite.setOnClickListener(this);
+        intent = findViewById(R.id.intent);
+        intent.setOnClickListener(this);
+        service = findViewById(R.id.service);
+        service.setOnClickListener(this);
 
         // 添加fragment
         FragmentManager fm = getSupportFragmentManager();
@@ -75,6 +87,16 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         bd.putSerializable("serial",new SerializeClass());
         fr.setArguments(bd);
         fm.beginTransaction().add(R.id.container,fr).commit();
+
+        // 请求相机权限
+        PackageManager pm = getPackageManager();
+        if(
+            pm.checkPermission("android.permission.CAMERA",getPackageName())
+            == PackageManager.PERMISSION_DENIED
+        ){
+            String[] permissions = {"android.permission.CAMERA"};
+            ActivityCompat.requestPermissions(this,permissions,4);
+        };
     }
 
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
@@ -87,31 +109,42 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     public void onSaveInstanceState(Bundle state){
         super.onSaveInstanceState(state);
         state.putInt("age",age);
+        Log.d("---MainActivity2----","onSaveInstanceState");
     }
 
     public void onRestart(){
         super.onRestart();
-        Log.d("MainActivity2","onRestart");
+        Log.d("---MainActivity2----","onRestart");
     }
 
     public void onStart(){
         super.onStart();
-        Log.d("MainActivity2","onStart");
+        Log.d("---MainActivity2----","onStart");
     }
 
     public void onResume(){
         super.onResume();
-        Log.d("MainActivity2","onResume");
+        Log.d("---MainActivity2----","onResume");
     }
 
     public void onPause(){
         super.onPause();
-        Log.d("MainActivity2","onPause");
+        Log.d("---MainActivity2----","onPause");
     }
 
     public void onStop(){
         super.onStop();
-        Log.d("MainActivity2","onStop");
+        Log.d("---MainActivity2----","onStop");
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("---MainActivity2----","onDestroy");
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d("---MainActivity2----","onRestoreInstanceState");
     }
 
     @Override
@@ -156,6 +189,14 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.sqlite:
                 i = new Intent(MainActivity2.this, SQLiteActivity.class);
+                startActivity(i);
+                break;
+            case R.id.intent:
+                i = new Intent(MainActivity2.this, IntentActivity.class);
+                startActivity(i);
+                break;
+            case R.id.service:
+                i = new Intent(MainActivity2.this, ServiceActivity.class);
                 startActivity(i);
                 break;
             default:
