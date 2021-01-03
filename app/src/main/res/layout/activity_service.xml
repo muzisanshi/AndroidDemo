@@ -28,4 +28,20 @@
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="113dp" />
 
+    <Button
+        android:id="@+id/bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bindService"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <Button
+        android:id="@+id/unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unbindService"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="113dp" />
+
 </LinearLayout>

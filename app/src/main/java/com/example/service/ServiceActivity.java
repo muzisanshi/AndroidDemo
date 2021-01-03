@@ -3,10 +3,14 @@ package com.example.service;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +21,7 @@ import com.service.MyService;
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tv;
     MyReciever mr;
+    ServiceConnection sc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +30,32 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         start.setOnClickListener(this);
         Button stop = findViewById(R.id.stop);
         stop.setOnClickListener(this);
+
+        Button bind = findViewById(R.id.bind);
+        bind.setOnClickListener(this);
+        Button unbind = findViewById(R.id.unbind);
+        unbind.setOnClickListener(this);
         tv = findViewById(R.id.count);
+
+        sc = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                Log.d("----ServiceActivity----","onServiceConnected");
+                MyService ms = ((MyService.MyBinder) iBinder).getService();
+                ms.startCount();
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+                Log.d("----ServiceActivity----","onServiceDisconnected");
+
+            }
+        };
 
         IntentFilter inf = new IntentFilter("counter");
         mr = new MyReciever();
         this.registerReceiver(mr,inf);
+
     }
 
     class MyReciever extends BroadcastReceiver{
@@ -50,6 +76,14 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.stop:
                 Intent s = new Intent(ServiceActivity.this, MyService.class);
                 stopService(s);
+                break;
+            case R.id.bind:
+                Intent b = new Intent(ServiceActivity.this,MyService.class);
+                bindService(b,sc,BIND_AUTO_CREATE);
+                break;
+            case R.id.unbind:
+                Intent ub = new Intent(ServiceActivity.this, MyService.class);
+                unbindService(sc);
                 break;
             default:
         }

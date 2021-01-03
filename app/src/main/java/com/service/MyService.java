@@ -16,6 +16,9 @@ public class MyService extends Service {
 
     public void startCount(){
         Log.d("----MyService----","startCount");
+        if(th != null){
+            th.interrupt();
+        }
         th = new Thread(){
             public void run(){
                 int count = 0;
@@ -51,10 +54,23 @@ public class MyService extends Service {
     }
 
     @Override
+    public boolean onUnbind(Intent intent){
+        Log.d("----MyService----", "onUnbind");
+        return true;
+    }
+
+    @Override
+    public void onRebind(Intent intent){
+        Log.d("----MyService----", "onRebind");
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         Log.d("----MyService----", "onDestroy");
-        th.interrupt();
+        if(th != null){
+            th.interrupt();
+        }
     }
 
     public class MyBinder extends Binder {
