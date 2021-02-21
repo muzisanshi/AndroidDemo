@@ -1,109 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".MainActivity2">-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity2">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity2">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/nav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="页面跳转"></Button>
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/listView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="列表视图"></Button>
-
-            <Button
-                android:id="@+id/listView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="列表视图2"></Button>
-
-            <Button
-                android:id="@+id/constraint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="约束布局"></Button>
-
-            <FrameLayout
-                android:id="@+id/container"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></FrameLayout>
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/appname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ff0000"
-                android:text="@string/app_name"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20pt">
+                <Button
+                    android:id="@+id/nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="页面跳转"></Button>
 
-            </TextView>
+                <Button
+                    android:id="@+id/listView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="列表视图"></Button>
 
-            <Button
-                android:id="@+id/serialize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="序列化" />
+                <Button
+                    android:id="@+id/listView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="列表视图2"></Button>
 
-            <Button
-                android:id="@+id/pager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="轮播" />
+                <Button
+                    android:id="@+id/constraint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="约束布局"></Button>
 
-            <Button
-                android:id="@+id/dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="对话框" />
+                <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></FrameLayout>
 
-            <Button
-                android:id="@+id/sqlite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SQLite" />
+                <TextView
+                    android:id="@+id/appname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ff0000"
+                    android:text="@string/app_name"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20pt">
 
-            <Button
-                android:id="@+id/intent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Intent" />
-            <Button
-                android:id="@+id/service"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="服务" />
-            <Button
-                android:id="@+id/viewModel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ViewModel" />
+                </TextView>
 
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+                <Button
+                    android:id="@+id/serialize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="序列化" />
+
+                <Button
+                    android:id="@+id/pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="轮播" />
+
+                <Button
+                    android:id="@+id/dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="对话框" />
+
+                <Button
+                    android:id="@+id/sqlite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SQLite" />
+
+                <Button
+                    android:id="@+id/intent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Intent" />
+
+                <Button
+                    android:id="@+id/service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务" />
+
+                <Button
+                    android:id="@+id/viewModel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ViewModel和DataBinding" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

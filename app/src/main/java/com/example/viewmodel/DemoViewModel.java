@@ -12,6 +12,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
 import com.example.androiddemo.R;
+import com.example.androiddemo.databinding.ActivityViewModelBinding;
+import com.example.model.ModelDemo;
 
 /**
  * 作者：lilei
@@ -21,29 +23,43 @@ public class DemoViewModel extends AndroidViewModel {
 
     private MyData md;
     private Activity ctx;
+    private ActivityViewModelBinding binding;
+    private ModelDemo model;
 
     public DemoViewModel(@NonNull Application application) {
         super(application);
-        md = new MyData();
+//        md = new MyData();
+        model = new ModelDemo();
     }
 
-    public void init(Activity ctx){
+    public void init(Activity ctx, final ActivityViewModelBinding binding){
         this.ctx = ctx;
-        final TextView tv = ctx.findViewById(R.id.content);
-        tv.setText(md.getContent());
-        md.observe((LifecycleOwner) ctx, new Observer<MyData>() {
-            @Override
-            public void onChanged(DemoViewModel.MyData myData) {
-                tv.setText(myData.getContent());
-            }
-        });
+        this.binding = binding;
+        this.binding.setDemoModel(model);
+//        final TextView tv = ctx.findViewById(R.id.content);
+//        tv.setText(md.getContent());
+//        md.observe((LifecycleOwner) ctx, new Observer<MyData>() {
+//            @Override
+//            public void onChanged(DemoViewModel.MyData myData) {
+//                tv.setText(myData.getContent());
+//            }
+//        });
 
-        ctx.findViewById(R.id.modify).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                md.setContent("hello,viewModel");
-            }
-        });
+//        ctx.findViewById(R.id.modify).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                md.setContent("hello,viewModel");
+//                // 手动刷新方式(ModelDemo不继承BaseObservable)
+////                model.setName("hello,ModelDemo");
+////                binding.setDemoModel(model);
+//                // 自动刷新方式(ModelDemo继承BaseObservable)
+//                model.setName("hello,ModelDemo");
+//            }
+//        });
+    }
+
+    public void onClickModify(View v){
+        model.setName("hello,ModelDemo");
     }
 
     public class MyData extends LiveData {
