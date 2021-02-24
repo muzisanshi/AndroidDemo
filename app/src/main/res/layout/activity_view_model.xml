@@ -27,9 +27,11 @@
 
         <Button
             android:id="@+id/modify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:gravity="center"
             android:text="修改数据"
+            android:background="@drawable/ic_launcher"
             android:onClick="@{viewModel.onClickModify}"/>
 
         <EditText
