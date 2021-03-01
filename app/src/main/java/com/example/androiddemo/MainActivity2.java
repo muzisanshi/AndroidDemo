@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     Button intent = null;
     Button service = null;
     Button viewModel = null;
+    Button algorithm = null;
     TextView tv = null;
     private Bundle state;
 
@@ -82,6 +83,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         service.setOnClickListener(this);
         viewModel = findViewById(R.id.viewModel);
         viewModel.setOnClickListener(this);
+        algorithm = findViewById(R.id.algorithm);
+        algorithm.setOnClickListener(this);
 
         // 添加fragment
         FragmentManager fm = getSupportFragmentManager();
@@ -204,6 +207,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.viewModel:
                 i = new Intent(MainActivity2.this, ViewModelActivity.class);
+                startActivity(i);
+                break;
+            case R.id.algorithm:
+                i = new Intent(MainActivity2.this, AlgorithmActivity.class);
                 startActivity(i);
                 break;
             default:

@@ -105,6 +105,12 @@
                     android:layout_height="wrap_content"
                     android:text="ViewModel和DataBinding" />
 
+                <Button
+                    android:id="@+id/algorithm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="算法" />
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
