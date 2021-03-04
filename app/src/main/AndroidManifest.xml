@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AlgorithmActivity"></activity>
+        <activity android:name=".AnnotationActivity"></activity>
+        <activity android:name=".EventBusActivity" />
+        <activity android:name=".AlgorithmActivity" />
         <activity android:name=".ViewModelActivity" />
         <activity android:name="com.example.service.ServiceActivity" />
         <activity android:name=".IntentActivity" />

@@ -111,6 +111,12 @@
                     android:layout_height="wrap_content"
                     android:text="算法" />
 
+                <Button
+                    android:id="@+id/annotation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Java注解" />
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
