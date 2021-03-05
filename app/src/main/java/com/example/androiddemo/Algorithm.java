@@ -23,6 +23,20 @@ public class Algorithm {
         return -1;
     }
 
+    // 冒泡排序,例如对一个整型数组,按从小到大排序
+    public static int[] bubbleSort(int[] arr){
+        for(int i = 0;i < arr.length;i++){
+            for(int j = i + 1;j < arr.length;j++){
+                if(arr[i] > arr[j]){
+                    int temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
     // 选择排序,例如对一个整型数组,按从小到大排序
     public static int[] chooseSort(int[] arr){
         int posi = 0;
@@ -45,28 +59,41 @@ public class Algorithm {
 
     // 插入排序,例如对一个整型数组,按从小到大排序
     public static int[] insertSort(int[] arr){
-        int posi = 0;
-        while (posi < arr.length){
-            for(int i = 0; i < posi;i++){
-                if(arr[posi] < arr[i] && i == 0){
-                    int temp = arr[posi];
-                    arr[posi] = arr[i];
-                    arr[i] = temp;
-                    continue;
-                }
-                if(arr[posi] < arr[i] && i > 0 && arr[posi] > arr[i - 1]){
-                    int temp2 = arr[posi];
-                    int temp3 = arr[i];
-                    for(int k = i;k < posi;k++){
-                        int temp4 = arr[k+1];
-                        arr[k+1] = temp3;
-                        temp3 = temp4;
-                    }
-                    arr[i] = temp2;
-                }
+        int length = arr.length;
+        for(int i = 1;i < length;i++){
+            int value = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > value){
+                arr[j+1] = arr[j];
+                j--;
             }
-            posi ++;
+            arr[j+1] = value;
         }
         return arr;
     }
+
+    // 希尔排序,例如对一个整型数组,按从小到大排序
+    public static int[] shellSort(int[] arr){
+
+        return arr;
+    }
+
+    // 归并排序
+    public static int[] mergeSort(int[] arr){
+
+        return arr;
+    }
+
+    // 快速排序
+    public static int[] quikSort(int[] arr){
+
+        return arr;
+    }
+
+    // 堆排序
+    public static int[] heapSort(int[] arr){
+
+        return arr;
+    }
+
 }
