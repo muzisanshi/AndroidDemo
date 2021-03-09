@@ -20,6 +20,9 @@ public class AlgorithmActivity extends AppCompatActivity implements View.OnClick
     private TextView inserted;
     private Button insert;
 
+    private TextView shelled;
+    private Button shell;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,10 @@ public class AlgorithmActivity extends AppCompatActivity implements View.OnClick
         insert = findViewById(R.id.insert);
         insert.setOnClickListener(this);
 
+        shelled = findViewById(R.id.shelled);
+        shell = findViewById(R.id.shell);
+        shell.setOnClickListener(this);
+
     }
 
     @Override
@@ -61,6 +68,11 @@ public class AlgorithmActivity extends AppCompatActivity implements View.OnClick
                 int[] arr3 = {31,9,19,4,40,13,30,6,1};
                 Algorithm.insertSort(arr3);
                 inserted.setText("排序后是:" + Arrays.toString(arr3));
+                break;
+            case R.id.shell:
+                int[] arr4 = {31,9,19,4,40,13,30,6,1};
+                Algorithm.shellSort(arr4);
+                shelled.setText("排序后是:" + Arrays.toString(arr4));
                 break;
         }
     }

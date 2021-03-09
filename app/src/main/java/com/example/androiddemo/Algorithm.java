@@ -1,5 +1,7 @@
 package com.example.androiddemo;
 
+import android.util.Log;
+
 /**
  * 作者：lilei
  * 日期： 2021/3/1 10:55
@@ -74,7 +76,20 @@ public class Algorithm {
 
     // 希尔排序,例如对一个整型数组,按从小到大排序
     public static int[] shellSort(int[] arr){
-
+        int n = arr.length;
+        int gap = n / 2;
+        while(gap > 0){
+            for(int j = gap; j < n; j++){
+                int i = j;
+                while(i >= gap && arr[i-gap] > arr[i]){
+                    int temp = arr[i-gap] + arr[i];
+                    arr[i-gap] = temp - arr[i-gap];
+                    arr[i] = temp - arr[i-gap];
+                    i -= gap;
+                }
+            }
+            gap = gap / 2;
+        }
         return arr;
     }
 

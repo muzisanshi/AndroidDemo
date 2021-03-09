@@ -77,4 +77,28 @@
             android:text="插入排序"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
+
+    <!--  希尔排序算法  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择排序算法:数组[31,9,19,4,40,13,30,6,1]中元素按照从小到大排列"
+            android:textColor="#111111"/>
+        <TextView
+            android:id="@+id/shelled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="排序后是:"/>
+        <Button
+            android:id="@+id/shell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="希尔排序"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
 </LinearLayout>
