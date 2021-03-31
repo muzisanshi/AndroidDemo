@@ -75,6 +75,7 @@ public class Algorithm {
     }
 
     // 希尔排序,例如对一个整型数组,按从小到大排序
+    // 网上资料:https://www.jianshu.com/p/d730ae586cf3
     public static int[] shellSort(int[] arr){
         int n = arr.length;
         int gap = n / 2;
