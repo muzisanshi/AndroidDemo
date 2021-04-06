@@ -29,7 +29,7 @@ public class DemoViewModel extends AndroidViewModel {
 
     public DemoViewModel(@NonNull Application application) {
         super(application);
-//        md = new MyData();
+        md = new MyData();
         model = new ModelDemo();
     }
 

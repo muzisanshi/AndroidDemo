@@ -1,7 +1,5 @@
 package com.example.androiddemo;
 
-import android.util.Log;
-
 /**
  * 作者：lilei
  * 日期： 2021/3/1 10:55
