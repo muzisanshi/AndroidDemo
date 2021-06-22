@@ -88,6 +88,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         algorithm.setOnClickListener(this);
         annotation = findViewById(R.id.annotation);
         annotation.setOnClickListener(this);
+        Button eventBus = findViewById(R.id.event_bus);
+        eventBus.setOnClickListener(this);
 
         // 添加fragment
         FragmentManager fm = getSupportFragmentManager();
@@ -218,6 +220,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.annotation:
                 i = new Intent(MainActivity2.this, AnnotationActivity.class);
+                startActivity(i);
+                break;
+            case R.id.event_bus:
+                i = new Intent(MainActivity2.this, EventBusActivity.class);
                 startActivity(i);
                 break;
             default:

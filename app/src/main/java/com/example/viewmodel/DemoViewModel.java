@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BaseObservable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleOwner;
@@ -61,6 +62,8 @@ public class DemoViewModel extends AndroidViewModel {
 
     public void onClickModify(View v){
         model.setName("hello,ModelDemo");
+//        model.name.set("hello,ModelDemo");
+//        model.name = "hello,ModelDemo";
     }
 
     public class MyData extends LiveData {
@@ -73,4 +76,6 @@ public class DemoViewModel extends AndroidViewModel {
             postValue(this);
         }
     }
+
+
 }

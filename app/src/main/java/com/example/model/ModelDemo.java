@@ -1,6 +1,7 @@
 package com.example.model;
 
 import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.databinding.ObservableField;
 
 /**
@@ -20,7 +21,9 @@ public class ModelDemo extends BaseObservable {
 //        name = new ObservableField<String>("ModelName");
 //    }
 
-    private String name = "ModelName";
+    public String name = "ModelName";
+
+    @Bindable
     public String getName(){
         return name;
     }
@@ -28,4 +31,17 @@ public class ModelDemo extends BaseObservable {
         this.name = name;
         notifyChange();
     }
+
+    public int age = 32;
+
+    @Bindable
+    public int getAge(){
+        return age;
+    }
+    public void setAge(int age){
+        this.age = age;
+        notifyChange();
+    }
+
+//    public final ObservableField<String> name = new ObservableField<>("来呀,互相伤害!");
 }
