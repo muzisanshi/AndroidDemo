@@ -1,47 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".IntentActivity"
-    android:gravity="center"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"></TextView>
-    <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="startService"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="41dp" />
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="stopService"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="113dp" />
+    <data>
 
-    <Button
-        android:id="@+id/bind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="bindService"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="41dp" />
+    </data>
 
-    <Button
-        android:id="@+id/unbind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="unbindService"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="113dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".IntentActivity"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"></TextView>
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="startService"
+            tools:layout_editor_absoluteX="157dp"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stopService"
+            tools:layout_editor_absoluteX="159dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <Button
+            android:id="@+id/bind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bindService"
+            tools:layout_editor_absoluteX="157dp"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <Button
+            android:id="@+id/unbind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unbindService"
+            tools:layout_editor_absoluteX="159dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <Button
+            android:id="@+id/aidl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绑定aidl服务"
+            tools:layout_editor_absoluteX="159dp"
+            tools:layout_editor_absoluteY="113dp" />
+    </LinearLayout>
+</layout>

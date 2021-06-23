@@ -3,6 +3,7 @@ package com.example.androiddemo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
@@ -18,6 +19,7 @@ import android.view.ViewAnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.androiddemo.MainActivity3;
+import com.example.androiddemo.databinding.ActivityMain2Binding;
 import com.example.model.SerializeClass;
 import com.example.service.ServiceActivity;
 
@@ -57,7 +59,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             Log.d("----log----",String.valueOf(age));
         }
 
-        setContentView(R.layout.activity_main2);
+        ActivityMain2Binding binding = DataBindingUtil.setContentView(this,R.layout.activity_main2);
+
         tv = findViewById(R.id.appname);
         tv.setText(R.string.user_name);
         add(30);

@@ -1,8 +1,11 @@
 package com.example.model;
 
+import android.util.Log;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.ObservableField;
+import androidx.databinding.library.baseAdapters.BR;
 
 /**
  * 作者：lilei
@@ -29,18 +32,19 @@ public class ModelDemo extends BaseObservable {
     }
     public void setName(String name){
         this.name = name;
-        notifyChange();
+        notifyPropertyChanged(BR.name);
     }
 
-    public int age = 32;
+    public String age = "32";
 
-    @Bindable
-    public int getAge(){
-        return age;
+    @Bindable({"name"})
+    public String getAge(){
+        Log.d("----getAge----",age);
+        return name + age;
     }
-    public void setAge(int age){
+    public void setAge(String age){
         this.age = age;
-        notifyChange();
+        notifyPropertyChanged(BR.age);
     }
 
 //    public final ObservableField<String> name = new ObservableField<>("来呀,互相伤害!");

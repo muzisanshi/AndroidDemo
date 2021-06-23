@@ -1,6 +1,7 @@
 package com.example.service;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -10,12 +11,15 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.androiddemo.R;
+import com.example.androiddemo.databinding.ActivityServiceBinding;
+import com.service.InnerProcessService;
 import com.service.MyService;
 
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
@@ -25,7 +29,29 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service);
+        ActivityServiceBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_service);
+
+        binding.aidl.setOnClickListener(v -> {
+            Intent i = new Intent("com.example.androiddemo.IMyAidlInterface");
+            i.setPackage("com.example.androiddemo");
+            bindService(i, new ServiceConnection() {
+                @Override
+                public void onServiceConnected(ComponentName name, IBinder service) {
+                    IMyAidlInterface s = IMyAidlInterface.Stub.asInterface(service);
+                    try {
+                        binding.count.setText(s.getName());
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onServiceDisconnected(ComponentName name) {
+
+                }
+            },BIND_AUTO_CREATE);
+        });
+
         Button start = findViewById(R.id.start);
         start.setOnClickListener(this);
         Button stop = findViewById(R.id.stop);
