@@ -22,7 +22,7 @@
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{demoModel.age}" />
+            android:text="@{demoModel.name}" />
 
         <Button
             android:id="@+id/modify"
@@ -35,6 +35,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="@{demoModel.age}"/>
+            android:text="@{demoModel.name}"/>
     </LinearLayout>
 </layout>

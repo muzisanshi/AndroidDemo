@@ -61,7 +61,7 @@ public class DemoViewModel extends AndroidViewModel {
     }
 
     public void onClickModify(View v){
-        model.setName("hello,ModelDemo");
+        model.name.set("hello,ModelDemo");
 //        model.name.set("hello,ModelDemo");
 //        model.name = "hello,ModelDemo";
     }

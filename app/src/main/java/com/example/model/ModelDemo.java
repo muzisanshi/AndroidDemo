@@ -23,29 +23,30 @@ public class ModelDemo extends BaseObservable {
 //    public ModelDemo(){
 //        name = new ObservableField<String>("ModelName");
 //    }
+//
+//    public String name = "ModelName";
+//
+//    @Bindable
+//    public String getName(){
+//        return name;
+//    }
+//    public void setName(String name){
+//        this.name = name;
+//        notifyPropertyChanged(BR.name);
+//    }
+//
+//    public String age = "32";
+//
+//    @Bindable({"name"})
+//    public String getAge(){
+//        Log.d("----getAge----",age);
+//        return name + age;
+//    }
+//    public void setAge(String age){
+//        this.age = age;
+//        notifyPropertyChanged(BR.age);
+//    }
 
-    public String name = "ModelName";
-
-    @Bindable
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name = name;
-        notifyPropertyChanged(BR.name);
-    }
-
-    public String age = "32";
-
-    @Bindable({"name"})
-    public String getAge(){
-        Log.d("----getAge----",age);
-        return name + age;
-    }
-    public void setAge(String age){
-        this.age = age;
-        notifyPropertyChanged(BR.age);
-    }
-
-//    public final ObservableField<String> name = new ObservableField<>("来呀,互相伤害!");
+    public final ObservableField<String> name = new ObservableField("来呀,互相伤害!");
+    public final ObservableField<Integer> age = new ObservableField(32);
 }
